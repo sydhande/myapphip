@@ -1,0 +1,30 @@
+{
+    "name": "PrimeAC",
+    "fields": [
+        {
+            "fieldName": "accountName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "accountType",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "generalac",
+            "otherEntityName": "generalAC",
+            "otherEntityRelationshipName": "primeAC"
+        }
+    ],
+    "changelogDate": "20181101074118",
+    "entityTableName": "prime_ac",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

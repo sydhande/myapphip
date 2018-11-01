@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity BillingRelate.
+    -->
+    <changeSet id="20181101074127-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="billingac_id"
+                                 baseTableName="billing_relate"
+                                 constraintName="fk_billing_relate_billingac_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="billing_ac"/>
+
+        <addForeignKeyConstraint baseColumnNames="billingac_id"
+                                 baseTableName="billing_relate"
+                                 constraintName="fk_billing_relate_billingac_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="billing_ac"/>
+
+    </changeSet>
+</databaseChangeLog>

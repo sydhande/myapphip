@@ -1,0 +1,56 @@
+{
+    "name": "Owner",
+    "fields": [
+        {
+            "fieldName": "accountcode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "flat",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "building",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "firstname",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "middlename",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lastname",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "allaccountcode",
+            "otherEntityName": "allAccountCode",
+            "otherEntityField": "accountcode",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "owner"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "owner",
+            "relationshipName": "owneraccount",
+            "otherEntityName": "ownerAccount",
+            "otherEntityField": "accounttype",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20181101074125",
+    "entityTableName": "owner",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

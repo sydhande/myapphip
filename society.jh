@@ -1,0 +1,110 @@
+entity PrimeAC {
+	accountName String,
+    accountType String
+}
+
+entity GeneralAC {
+	accountName String,
+    accountType String,
+    transctionType String
+}
+
+// an ignored comment
+/** not an ignored comment */
+entity MainAC {
+	accountName String
+}
+
+entity BillingAC {
+	accountName String required,
+    accountCode String
+}
+
+entity AccountCatagory {
+	accountType String,
+	accountUser Catuser
+}
+
+enum Catuser {
+    OWNER, VENDOR, CUSTOMER
+}
+
+entity OwnerAccount {
+	accountType String
+}
+
+entity VendorAccount {
+	accountType String
+}
+
+entity Owner {
+	accountcode String,
+    flat String,
+    building String,
+    firstname String,
+    middlename String,
+    lastname String
+}
+
+entity AllAccountCode {
+	accountcode String,
+}
+
+entity BillingRelate {
+	draccount Long,
+	craccount Long,
+}
+//Relationship
+
+relationship OneToMany {
+	PrimeAC{generalac} to GeneralAC
+}
+
+relationship OneToMany {
+	GeneralAC{mainac} to MainAC
+}
+
+relationship OneToMany {
+	MainAC{billingac} to BillingAC
+}
+
+relationship OneToOne {
+	AccountCatagory{owneraccount(accounttype)} to OwnerAccount
+}
+
+relationship OneToOne {
+	AccountCatagory{vendoraccount(accounttype)} to VendorAccount
+}
+
+relationship OneToOne {
+	Owner{allaccountcode(accountcode)} to AllAccountCode
+}
+
+relationship OneToOne {
+	BillingAC{allaccountcode(accountcode)} to AllAccountCode
+}
+
+relationship ManyToMany {
+	Owner{owneraccount(accounttype)} to OwnerAccount{owner}
+}
+
+relationship OneToMany {
+	BillingAC{relatedrac(draccount)} to BillingRelate,
+	BillingAC{relatecrac(craccount)} to BillingRelate,
+}
+// defining multiple OneToMany relationships with comments
+
+
+
+// Set pagination options
+//paginate JobHistory, Employee with infinite-scroll
+//paginate Job with pagination
+
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+//service all with serviceImpl except Employee, Job
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

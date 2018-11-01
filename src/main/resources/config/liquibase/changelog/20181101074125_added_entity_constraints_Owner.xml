@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Owner.
+    -->
+    <changeSet id="20181101074125-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="allaccountcode_id"
+                                 baseTableName="owner"
+                                 constraintName="fk_owner_allaccountcode_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="all_account_code"/>
+
+        <addForeignKeyConstraint baseColumnNames="owners_id"
+                                 baseTableName="owner_owneraccount"
+                                 constraintName="fk_owner_owneraccount_owners_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="owner"/>
+        <addForeignKeyConstraint baseColumnNames="owneraccounts_id"
+                                 baseTableName="owner_owneraccount"
+                                 constraintName="fk_owner_owneraccount_owneraccounts_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="owner_account"/>
+        
+    </changeSet>
+</databaseChangeLog>
