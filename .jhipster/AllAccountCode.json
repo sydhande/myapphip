@@ -1,0 +1,19 @@
+{
+    "name": "AllAccountCode",
+    "fields": [
+        {
+            "fieldName": "accountcode",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181101074126",
+    "entityTableName": "all_account_code",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

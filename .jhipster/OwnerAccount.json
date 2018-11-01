@@ -1,0 +1,27 @@
+{
+    "name": "OwnerAccount",
+    "fields": [
+        {
+            "fieldName": "accountType",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "owner",
+            "otherEntityName": "owner",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "owneraccount"
+        }
+    ],
+    "changelogDate": "20181101074123",
+    "entityTableName": "owner_account",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

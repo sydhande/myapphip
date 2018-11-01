@@ -1,0 +1,40 @@
+{
+    "name": "GeneralAC",
+    "fields": [
+        {
+            "fieldName": "accountName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "accountType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "transctionType",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "primeAC",
+            "otherEntityName": "primeAC",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "mainac",
+            "otherEntityName": "mainAC",
+            "otherEntityRelationshipName": "generalAC"
+        }
+    ],
+    "changelogDate": "20181101074119",
+    "entityTableName": "general_ac",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

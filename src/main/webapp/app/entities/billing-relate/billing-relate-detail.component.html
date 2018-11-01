@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="billingRelate">
+            <h2><span>Billing Relate</span> {{billingRelate.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Draccount</span></dt>
+                <dd>
+                    <span>{{billingRelate.draccount}}</span>
+                </dd>
+                <dt><span>Craccount</span></dt>
+                <dd>
+                    <span>{{billingRelate.craccount}}</span>
+                </dd>
+                <dt><span>Billing AC</span></dt>
+                <dd>
+                    <div *ngIf="billingRelate.billingAC">
+                        <a [routerLink]="['/billing-ac', billingRelate.billingAC?.id, 'view']">{{billingRelate.billingAC?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Billing AC</span></dt>
+                <dd>
+                    <div *ngIf="billingRelate.billingAC">
+                        <a [routerLink]="['/billing-ac', billingRelate.billingAC?.id, 'view']">{{billingRelate.billingAC?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/billing-relate', billingRelate.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

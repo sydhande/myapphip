@@ -1,0 +1,67 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-owner-heading">Create or edit a Owner</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!owner.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="owner.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_accountcode">Accountcode</label>
+                    <input type="text" class="form-control" name="accountcode" id="field_accountcode"
+                        [(ngModel)]="owner.accountcode" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_flat">Flat</label>
+                    <input type="text" class="form-control" name="flat" id="field_flat"
+                        [(ngModel)]="owner.flat" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_building">Building</label>
+                    <input type="text" class="form-control" name="building" id="field_building"
+                        [(ngModel)]="owner.building" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_firstname">Firstname</label>
+                    <input type="text" class="form-control" name="firstname" id="field_firstname"
+                        [(ngModel)]="owner.firstname" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_middlename">Middlename</label>
+                    <input type="text" class="form-control" name="middlename" id="field_middlename"
+                        [(ngModel)]="owner.middlename" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_lastname">Lastname</label>
+                    <input type="text" class="form-control" name="lastname" id="field_lastname"
+                        [(ngModel)]="owner.lastname" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_allaccountcode">Allaccountcode</label>
+                    <select class="form-control" id="field_allaccountcode" name="allaccountcode" [(ngModel)]="owner.allaccountcode">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="allAccountCodeOption.id === owner.allaccountcode?.id ? owner.allaccountcode : allAccountCodeOption" *ngFor="let allAccountCodeOption of allaccountcodes; trackBy: trackAllAccountCodeById">{{allAccountCodeOption.accountcode}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="field_owneraccount">Owneraccount</label>
+                    <select class="form-control" id="field_owneraccount" multiple name="owneraccount" [(ngModel)]="owner.owneraccounts">
+                        <option [ngValue]="getSelected(owner.owneraccounts, ownerAccountOption)" *ngFor="let ownerAccountOption of owneraccounts; trackBy: trackOwnerAccountById">{{ownerAccountOption.accounttype}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

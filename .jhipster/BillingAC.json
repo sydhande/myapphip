@@ -1,0 +1,53 @@
+{
+    "name": "BillingAC",
+    "fields": [
+        {
+            "fieldName": "accountName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "accountCode",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "mainAC",
+            "otherEntityName": "mainAC",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "allaccountcode",
+            "otherEntityName": "allAccountCode",
+            "otherEntityField": "accountcode",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "billingAC"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "relatedrac",
+            "otherEntityName": "billingRelate",
+            "otherEntityRelationshipName": "billingAC"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "relatecrac",
+            "otherEntityName": "billingRelate",
+            "otherEntityRelationshipName": "billingAC"
+        }
+    ],
+    "changelogDate": "20181101074121",
+    "entityTableName": "billing_ac",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

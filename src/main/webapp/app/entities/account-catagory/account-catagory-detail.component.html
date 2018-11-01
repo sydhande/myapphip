@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="accountCatagory">
+            <h2><span>Account Catagory</span> {{accountCatagory.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Account Type</span></dt>
+                <dd>
+                    <span>{{accountCatagory.accountType}}</span>
+                </dd>
+                <dt><span>Account User</span></dt>
+                <dd>
+                    <span>{{accountCatagory.accountUser}}</span>
+                </dd>
+                <dt><span>Owneraccount</span></dt>
+                <dd>
+                    <div *ngIf="accountCatagory.owneraccount">
+                        <a [routerLink]="['/owner-account', accountCatagory.owneraccount?.id, 'view']">{{accountCatagory.owneraccount?.accounttype}}</a>
+                    </div>
+                </dd>
+                <dt><span>Vendoraccount</span></dt>
+                <dd>
+                    <div *ngIf="accountCatagory.vendoraccount">
+                        <a [routerLink]="['/vendor-account', accountCatagory.vendoraccount?.id, 'view']">{{accountCatagory.vendoraccount?.accounttype}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/account-catagory', accountCatagory.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity BillingAC.
+    -->
+    <changeSet id="20181101074121-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="mainac_id"
+                                 baseTableName="billing_ac"
+                                 constraintName="fk_billingac_mainac_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="main_ac"/>
+
+        <addForeignKeyConstraint baseColumnNames="allaccountcode_id"
+                                 baseTableName="billing_ac"
+                                 constraintName="fk_billingac_allaccountcode_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="all_account_code"/>
+
+    </changeSet>
+</databaseChangeLog>

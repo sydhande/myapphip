@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="billingAC">
+            <h2><span>Billing AC</span> {{billingAC.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Account Name</span></dt>
+                <dd>
+                    <span>{{billingAC.accountName}}</span>
+                </dd>
+                <dt><span>Account Code</span></dt>
+                <dd>
+                    <span>{{billingAC.accountCode}}</span>
+                </dd>
+                <dt><span>Main AC</span></dt>
+                <dd>
+                    <div *ngIf="billingAC.mainAC">
+                        <a [routerLink]="['/main-ac', billingAC.mainAC?.id, 'view']">{{billingAC.mainAC?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Allaccountcode</span></dt>
+                <dd>
+                    <div *ngIf="billingAC.allaccountcode">
+                        <a [routerLink]="['/all-account-code', billingAC.allaccountcode?.id, 'view']">{{billingAC.allaccountcode?.accountcode}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/billing-ac', billingAC.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

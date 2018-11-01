@@ -1,0 +1,68 @@
+<div>
+    <h2 id="page-heading">
+        <span>Billing Relates</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-billing-relate" [routerLink]="['/billing-relate/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Billing Relate
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="billingRelates">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Draccount</span></th>
+            <th><span>Craccount</span></th>
+            <th><span>Billing AC</span></th>
+            <th><span>Billing AC</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let billingRelate of billingRelates ;trackBy: trackId">
+                <td><a [routerLink]="['/billing-relate', billingRelate.id, 'view' ]">{{billingRelate.id}}</a></td>
+                <td>{{billingRelate.draccount}}</td>
+                <td>{{billingRelate.craccount}}</td>
+                <td>
+                    <div *ngIf="billingRelate.billingAC">
+                        <a [routerLink]="['../billing-ac', billingRelate.billingAC?.id, 'view' ]" >{{billingRelate.billingAC?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="billingRelate.billingAC">
+                        <a [routerLink]="['../billing-ac', billingRelate.billingAC?.id, 'view' ]" >{{billingRelate.billingAC?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/billing-relate', billingRelate.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/billing-relate', billingRelate.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'billing-relate/'+ billingRelate.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

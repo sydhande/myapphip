@@ -42,6 +42,23 @@ public class CacheConfiguration {
             cm.createCache(io.github.jhipster.application.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(io.github.jhipster.application.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(io.github.jhipster.application.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.PrimeAC.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.PrimeAC.class.getName() + ".generalacs", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.GeneralAC.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.GeneralAC.class.getName() + ".mainacs", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.MainAC.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.MainAC.class.getName() + ".billingacs", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.BillingAC.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.BillingAC.class.getName() + ".relatedracs", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.BillingAC.class.getName() + ".relatecracs", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.AccountCatagory.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.OwnerAccount.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.OwnerAccount.class.getName() + ".owners", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.VendorAccount.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Owner.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Owner.class.getName() + ".owneraccounts", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.AllAccountCode.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.BillingRelate.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

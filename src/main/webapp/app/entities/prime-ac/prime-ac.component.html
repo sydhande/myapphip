@@ -1,0 +1,56 @@
+<div>
+    <h2 id="page-heading">
+        <span>Prime ACS</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-prime-ac" [routerLink]="['/prime-ac/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Prime AC
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="primeACS">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Account Name</span></th>
+            <th><span>Account Type</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let primeAC of primeACS ;trackBy: trackId">
+                <td><a [routerLink]="['/prime-ac', primeAC.id, 'view' ]">{{primeAC.id}}</a></td>
+                <td>{{primeAC.accountName}}</td>
+                <td>{{primeAC.accountType}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/prime-ac', primeAC.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/prime-ac', primeAC.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'prime-ac/'+ primeAC.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

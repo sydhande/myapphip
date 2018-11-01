@@ -1,0 +1,33 @@
+{
+    "name": "MainAC",
+    "fields": [
+        {
+            "fieldName": "accountName",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "generalAC",
+            "otherEntityName": "generalAC",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "billingac",
+            "otherEntityName": "billingAC",
+            "otherEntityRelationshipName": "mainAC"
+        }
+    ],
+    "changelogDate": "20181101074120",
+    "javadoc": "not an ignored comment",
+    "entityTableName": "main_ac",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="owner">
+            <h2><span>Owner</span> {{owner.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Accountcode</span></dt>
+                <dd>
+                    <span>{{owner.accountcode}}</span>
+                </dd>
+                <dt><span>Flat</span></dt>
+                <dd>
+                    <span>{{owner.flat}}</span>
+                </dd>
+                <dt><span>Building</span></dt>
+                <dd>
+                    <span>{{owner.building}}</span>
+                </dd>
+                <dt><span>Firstname</span></dt>
+                <dd>
+                    <span>{{owner.firstname}}</span>
+                </dd>
+                <dt><span>Middlename</span></dt>
+                <dd>
+                    <span>{{owner.middlename}}</span>
+                </dd>
+                <dt><span>Lastname</span></dt>
+                <dd>
+                    <span>{{owner.lastname}}</span>
+                </dd>
+                <dt><span>Allaccountcode</span></dt>
+                <dd>
+                    <div *ngIf="owner.allaccountcode">
+                        <a [routerLink]="['/all-account-code', owner.allaccountcode?.id, 'view']">{{owner.allaccountcode?.accountcode}}</a>
+                    </div>
+                </dd>
+                <dt><span>Owneraccount</span></dt>
+                <dd>
+                    <span *ngFor="let owneraccount of owner.owneraccounts; let last = last">
+                        <a [routerLink]="['/owner-account', owneraccount?.id, 'view' ]">{{owneraccount.accounttype}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/owner', owner.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

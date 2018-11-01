@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-account-catagory-heading">Create or edit a Account Catagory</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!accountCatagory.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="accountCatagory.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_accountType">Account Type</label>
+                    <input type="text" class="form-control" name="accountType" id="field_accountType"
+                        [(ngModel)]="accountCatagory.accountType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_accountUser">Account User</label>
+                    <select class="form-control" name="accountUser" [(ngModel)]="accountCatagory.accountUser" id="field_accountUser" >
+                        <option value="OWNER">OWNER</option>
+                        <option value="VENDOR">VENDOR</option>
+                        <option value="CUSTOMER">CUSTOMER</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_owneraccount">Owneraccount</label>
+                    <select class="form-control" id="field_owneraccount" name="owneraccount" [(ngModel)]="accountCatagory.owneraccount">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="ownerAccountOption.id === accountCatagory.owneraccount?.id ? accountCatagory.owneraccount : ownerAccountOption" *ngFor="let ownerAccountOption of owneraccounts; trackBy: trackOwnerAccountById">{{ownerAccountOption.accounttype}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_vendoraccount">Vendoraccount</label>
+                    <select class="form-control" id="field_vendoraccount" name="vendoraccount" [(ngModel)]="accountCatagory.vendoraccount">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="vendorAccountOption.id === accountCatagory.vendoraccount?.id ? accountCatagory.vendoraccount : vendorAccountOption" *ngFor="let vendorAccountOption of vendoraccounts; trackBy: trackVendorAccountById">{{vendorAccountOption.accounttype}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

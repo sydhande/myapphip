@@ -1,0 +1,41 @@
+{
+    "name": "AccountCatagory",
+    "fields": [
+        {
+            "fieldName": "accountType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "accountUser",
+            "fieldType": "Catuser",
+            "fieldValues": "OWNER,VENDOR,CUSTOMER"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "owneraccount",
+            "otherEntityName": "ownerAccount",
+            "otherEntityField": "accounttype",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "accountCatagory"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "vendoraccount",
+            "otherEntityName": "vendorAccount",
+            "otherEntityField": "accounttype",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "accountCatagory"
+        }
+    ],
+    "changelogDate": "20181101074122",
+    "entityTableName": "account_catagory",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
